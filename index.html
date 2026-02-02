@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="منصة الإنقاذ التعليمية | مع الهندسجي فتحي سيد. طريقك للدرجة النهائية في الرياضيات يبدأ هنا.">
     <title>منصة الإنقاذ | الهندسجي فتحي سيد</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,10 +11,9 @@
     
     <style>
         :root {
-            --bg-deep: #020408;
-            --bg-card: #0a101f;
-            --accent-cyan: #00eaff;
-            --accent-gold: #ffb700;
+            --bg-deep: #0f172a;
+            --bg-card: #1e293b;
+            --accent-cyan: #22d3ee;
             --text-main: #f8fafc;
         }
 
@@ -23,196 +21,146 @@
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-deep);
             color: var(--text-main);
-            overflow-x: hidden;
+            line-height: 1.6;
         }
         
-        .handwritten { font-family: 'Aref Ruqaa', serif; }
+        .handwritten { font-family: 'Aref Ruqaa', serif; letter-spacing: -1px; }
         
         .bg-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.62 10.11L51.3 6.78c-.78-.78-2.05-.78-2.83 0l-1.41 1.41c-.78.78-.78 2.05 0 2.83l3.32 3.32-3.32 3.32c-.78.78-.78 2.05 0 2.83l1.41 1.41c.78.78 2.05.78 2.83 0l3.32-3.32 3.32 3.32c.78.78 2.05.78 2.83 0l1.41-1.41c.78-.78.78-2.05 0-2.83l-3.32-3.32 3.32-3.32c.78-.78.78-2.05 0-2.83l-1.41-1.41c-.78-.78-2.05-.78-2.83 0l-3.32 3.32z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
         }
 
-        .bg-hero-gradient {
-            background: radial-gradient(circle at top right, rgba(0, 234, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(255, 183, 0, 0.08) 0%, transparent 50%),
-                        var(--bg-deep);
-        }
+        .nav-btn { @apply px-8 py-3 rounded-2xl font-bold transition-all border border-slate-700 text-slate-400 bg-slate-900/50; }
+        .nav-btn.active { @apply border-cyan-400 text-cyan-400 bg-cyan-400/5 shadow-lg shadow-cyan-400/10; }
 
-        .nav-btn {
-            @apply px-8 py-3 rounded-2xl font-bold transition-all border border-slate-800 text-slate-500 bg-slate-900/50 flex items-center gap-2;
-        }
-        .nav-btn.active {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
-            @apply border-none text-slate-950 shadow-lg shadow-cyan-400/20 scale-105;
-        }
-
-        .sub-btn {
-            @apply px-6 py-2 rounded-full font-bold transition-all border border-slate-800 text-slate-400 text-sm;
-        }
-        .sub-btn.active {
-            @apply border-cyan-400 text-cyan-400 bg-cyan-400/5;
-        }
-
-        .course-card {
-            @apply bg-slate-900/40 border border-slate-800 rounded-[35px] p-8 transition-all duration-500 hover:border-cyan-400/50 hover:-translate-y-2 relative overflow-hidden;
-        }
+        .course-card { @apply bg-slate-900/40 border border-slate-800 rounded-[32px] p-8 transition-all duration-500 hover:border-slate-600 hover:-translate-y-2; }
         
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.8s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .btn-action {
-            @apply flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all;
-        }
+        .sub-btn { @apply px-6 py-2 rounded-full font-bold transition-all border border-slate-800 text-slate-500 text-sm; }
+        .sub-btn.active { @apply border-cyan-400 text-cyan-400 bg-cyan-400/5; }
     </style>
 </head>
 <body class="bg-pattern">
 
-    <header class="bg-hero-gradient min-h-[85vh] flex items-center relative py-12">
+    <header class="min-h-[85vh] flex items-center relative py-12">
         <div class="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
             <div class="lg:w-3/5 text-center lg:text-right">
                 <h2 class="text-cyan-400 font-bold mb-4 tracking-widest text-lg">أهلاً بك يا بطل في</h2>
                 <h1 class="text-6xl md:text-8xl handwritten text-white mb-6">منصة <span class="text-cyan-400">الإنقاذ</span></h1>
                 <p class="text-2xl md:text-3xl handwritten text-slate-300 mb-8">مع الهندسجي | فتحي سيد</p>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10 font-medium border-r-4 border-cyan-400/30 pr-6">
-                    مش مجرد منصة، دي خطتك للوصول للدرجة النهائية. شرح بيخاطب عقلك، تأسيس بيبني مستقبلك، ومتابعة بتضمن تفوقك. أنت هنا في أيد أمينة.
-                </p>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10 font-medium">مش مجرد منصة، دي رفيقتك للوصول للدرجة النهائية. بنحول المعقد لسهل، وبنبني أساسك صح عشان تضمن مستقبلك.</p>
                 <div class="flex flex-wrap justify-center lg:justify-start gap-4">
                     <button onclick="document.getElementById('nav-tabs').scrollIntoView();" class="bg-white text-slate-900 px-10 py-4 rounded-full font-black hover:bg-cyan-400 transition-colors shadow-xl">ابدأ رحلتك</button>
-                    <a href="https://youtube.com/@elhandasgey" target="_blank" class="border border-slate-700 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition">قناتي على يوتيوب</a>
+                    <a href="https://youtube.com/@elhandasgey" target="_blank" class="border border-slate-700 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition">اليوتيوب</a>
                 </div>
             </div>
             <div class="lg:w-2/5 relative">
                 <div class="absolute inset-0 bg-cyan-400 blur-[120px] opacity-10 rounded-full"></div>
-                <img src="https://avatars.githubusercontent.com/u/258786890?s=400&u=068e7b20038a66b4ed9da0cd84f6d7463f916677&v=4" 
-                     alt="الهندسجي" 
-                     class="relative z-10 w-full max-w-sm mx-auto rounded-[40px] shadow-2xl"
-                     style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
+                <img src="https://avatars.githubusercontent.com/u/258786890?s=400&u=068e7b20038a66b4ed9da0cd84f6d7463f916677&v=4" alt="الهندسجي" class="relative z-10 w-full max-w-sm mx-auto rounded-[40px] grayscale-[20%] hover:grayscale-0 transition-all duration-700 shadow-2xl" style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
             </div>
         </div>
     </header>
 
-    <nav id="nav-tabs" class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-y border-slate-800 py-6">
+    <nav id="nav-tabs" class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-y border-slate-800 py-6">
         <div class="container mx-auto flex flex-wrap justify-center gap-4 px-4">
-            <button onclick="showMainTab('emergency')" class="nav-btn active"><i class="fa-solid fa-bolt-lightning"></i> ركن الطوارئ</button>
-            <button onclick="showMainTab('sec1')" class="nav-btn"><i class="fa-solid fa-graduation-cap"></i> أولى ثانوي</button>
-            <button onclick="showMainTab('sec2')" class="nav-btn"><i class="fa-solid fa-graduation-cap"></i> تانية ثانوي</button>
+            <button onclick="showTab('emergency')" class="nav-btn active">ركن الطوارئ 🚨</button>
+            <button onclick="showTab('sec1')" class="nav-btn">أولى ثانوي 🎓</button>
+            <button onclick="showTab('sec2')" class="nav-btn">تانية ثانوي 🎓</button>
         </div>
     </nav>
 
-    <main class="container mx-auto py-20 px-6">
+    <main class="container mx-auto py-24 px-6">
         
         <div id="emergency" class="tab-content active">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-4xl md:text-6xl handwritten text-white mb-6">كورس التأسيس <span class="text-cyan-400">القوي</span> ⚡</h2>
-                <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">هنا هقدملك كل اللى محتاجه عشان تقدر تبدأ السنه صح مع زمايلك، كورس قوى، محتوى لذيذ، تقديم بشكل مختلف.</p>
-                <a href="https://t.me/EL_HANDASGEY/134" target="_blank" class="inline-flex items-center gap-3 border border-cyan-400/30 text-cyan-400 px-8 py-3 rounded-full font-bold hover:bg-cyan-400 hover:text-slate-900 transition-all">
-                    <i class="fa-solid fa-file-pdf"></i> تحميل ملف الكورس (PDF)
-                </a>
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <h2 class="text-4xl md:text-5xl handwritten text-white mb-6">كورس التأسيس الشامل</h2>
+                <p class="text-slate-400 text-lg mb-10 leading-relaxed">هنا هقدملك كل اللى محتاجه عشان تقدر تبدأ السنه صح مع زمايلك، كورس قوى، محتوى لذيذ، تقديم بشكل مختلف.</p>
+                <a href="https://t.me/EL_HANDASGEY/134" target="_blank" class="inline-flex items-center gap-3 border border-cyan-400/30 text-cyan-400 px-8 py-3 rounded-full font-bold hover:bg-cyan-400 hover:text-slate-900 transition-all">تحميل ملف الكورس</a>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="course-card"><h3 class="text-xl font-bold mb-4">محتوى الكورس الشامل</h3><p class="text-slate-500 text-sm mb-8">نظرة عامة على جميع الموضوعات الأساسية خطوة بخطوة.</p><a href="https://youtu.be/q-lqr5M1tns" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">شاهد الفيديو</a></div>
-                <div class="course-card"><span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة 1</span><h3 class="text-xl font-bold mb-4">البداية والمجاميع</h3><p class="text-slate-500 text-sm mb-8">المجموعات والفترات ومجاميع الأعداد والمقادير الجبرية.</p><a href="https://youtu.be/7AQL2wA-fTw" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">ابدأ الآن</a></div>
-                <div class="course-card"><span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة 2</span><h3 class="text-xl font-bold mb-4">الأسس والتحليل</h3><p class="text-slate-500 text-sm mb-8">الأسس واللوغاريتمات والتحليل بأنواعه (أهم موضوع).</p><a href="https://youtu.be/sC1p-lo_tY4" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">ابدأ الآن</a></div>
-                <div class="course-card"><span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة 3</span><h3 class="text-xl font-bold mb-4">المعادلات والميل</h3><p class="text-slate-500 text-sm mb-8">المعادلات والمتباينات والميل والعلاقات (أساس الفيزياء).</p><a href="https://youtu.be/CoGVFPKUrf8" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">ابدأ الآن</a></div>
-                <div class="course-card"><span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة 4</span><h3 class="text-xl font-bold mb-4">الدوال والمستقيم</h3><p class="text-slate-500 text-sm mb-8">معادلة الخط المستقيم والدوال والمجال.</p><a href="https://youtu.be/bqUnE_lIkUc" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">ابدأ الآن</a></div>
-                <div class="course-card"><span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة 5</span><h3 class="text-xl font-bold mb-4">حساب المثلثات</h3><p class="text-slate-500 text-sm mb-8">شرح شامل ومفصل لجميع أساسيات وقوانين المثلثات.</p><a href="https://youtu.be/OPjs4wvkExA" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">ابدأ الآن</a></div>
-                <div class="course-card"><span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة 6</span><h3 class="text-xl font-bold mb-4">أساسيات الهندسة</h3><p class="text-slate-500 text-sm mb-8">أساسيات الهندسة المستوية والفراغية من الصفر.</p><a href="https://youtu.be/PJrXRGs7mM4" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900">ابدأ الآن</a></div>
+                <div class="course-card"><h3 class="text-2xl font-bold mb-4">محتوى الكورس الشامل</h3><p class="text-slate-500 text-sm mb-8">نظرة عامة على الموضوعات الأساسية من المجموعات للفترات والميل.</p><a href="https://youtu.be/q-lqr5M1tns" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">شاهد الفيديو</a></div>
+                <div class="course-card"><span class="text-cyan-400 font-black text-sm block mb-4">الحصة 01</span><h3 class="text-2xl font-bold mb-4">مجموعات الأعداد</h3><p class="text-slate-500 text-sm mb-8">مفهوم المجموعة والعنصر، أنواع الفترات، والتعامل مع المقادير الجبرية.</p><a href="https://youtu.be/7AQL2wA-fTw" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">ابدأ الدرس</a></div>
+                <div class="course-card"><span class="text-cyan-400 font-black text-sm block mb-4">الحصة 02</span><h3 class="text-2xl font-bold mb-4">الأسس والتحليل</h3><p class="text-slate-500 text-sm mb-8">خواص الأسس، اللوغاريتمات، والتحليل بأنواعه (عقدة الطلبة).</p><a href="https://youtu.be/sC1p-lo_tY4" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">ابدأ الدرس</a></div>
+                <div class="course-card"><span class="text-cyan-400 font-black text-sm block mb-4">الحصة 03</span><h3 class="text-2xl font-bold mb-4">المعادلات والميل</h3><p class="text-slate-500 text-sm mb-8">حل المتباينات والمعادلات، والميل والعلاقات الطردية والعكسية.</p><a href="https://youtu.be/CoGVFPKUrf8" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">ابدأ الدرس</a></div>
+                <div class="course-card"><span class="text-cyan-400 font-black text-sm block mb-4">الحصة 04</span><h3 class="text-2xl font-bold mb-4">معادلة المستقيم</h3><p class="text-slate-500 text-sm mb-8">أنواع الخطوط، إيجاد معادلة الخط المستقيم، ومفهوم الدوال والمجال.</p><a href="https://youtu.be/bqUnE_lIkUc" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">ابدأ الدرس</a></div>
+                <div class="course-card"><span class="text-cyan-400 font-black text-sm block mb-4">الحصة 05</span><h3 class="text-2xl font-bold mb-4">حساب المثلثات</h3><p class="text-slate-500 text-sm mb-8">شرح مفصل لجميع قوانين وأساسيات حساب المثلثات من البداية.</p><a href="https://youtu.be/OPjs4wvkExA" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">ابدأ الدرس</a></div>
+                <div class="course-card"><span class="text-cyan-400 font-black text-sm block mb-4">الحصة 06</span><h3 class="text-2xl font-bold mb-4">أساسيات الهندسة</h3><p class="text-slate-500 text-sm mb-8">شرح مركز لأساسيات الهندسة والهندسة الفراغية من الصفر.</p><a href="https://youtu.be/PJrXRGs7mM4" target="_blank" class="block w-full text-center py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-cyan-400 hover:text-slate-900 transition">ابدأ الدرس</a></div>
             </div>
         </div>
 
         <div id="sec1" class="tab-content">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-6xl handwritten text-white mb-4">الصف الأول الثانوي</h2>
-                <p class="text-cyan-400 font-bold">الترم الثاني</p>
+            <div class="text-center mb-12"><h2 class="text-4xl handwritten text-white">الصف الأول الثانوي | الترم الثاني</h2></div>
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <button onclick="showSubTab('s1-algebra')" class="sub-btn active">الجبر</button>
+                <button onclick="showSubTab('s1-trig')" class="sub-btn">حساب المثلثات</button>
+                <button onclick="showSubTab('s1-geo')" class="sub-btn">الهندسة</button>
             </div>
-            
-            <div class="flex flex-wrap justify-center gap-3 mb-16">
-                <button onclick="showSubTab('sec1-algebra')" class="sub-btn active">الجبر</button>
-                <button onclick="showSubTab('sec1-trig')" class="sub-btn">حساب المثلثات</button>
-                <button onclick="showSubTab('sec1-geo')" class="sub-btn">الهندسة</button>
-            </div>
-
-            <div id="sec1-algebra" class="sub-content block">
+            <div id="s1-algebra" class="sub-content">
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="course-card">
-                        <span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة الأولى</span>
-                        <h3 class="text-xl font-bold mb-6">تنظيم البيانات في مصفوفات</h3>
-                        <div class="space-y-3">
-                            <a href="https://youtu.be/U6GAzLENo3I" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900"><i class="fa-solid fa-play"></i> الشرح</a>
-                            <a href="https://t.me/EL_HANDASGEY/292" target="_blank" class="btn-action border border-slate-700 text-slate-300 hover:border-cyan-400"><i class="fa-solid fa-file-pdf"></i> الملزمة</a>
-                            <button class="w-full py-3 rounded-xl border border-dashed border-slate-700 text-slate-600 font-bold text-xs cursor-not-allowed">قريباً: الاختبار التقييمي</button>
+                        <span class="text-cyan-400 font-bold text-xs mb-2 block">الحصة الأولى</span>
+                        <h3 class="text-xl font-bold mb-6 text-white">تنظيم البيانات في مصفوفات</h3>
+                        <div class="flex flex-col gap-2">
+                            <a href="https://youtu.be/U6GAzLENo3I" target="_blank" class="py-3 rounded-xl bg-slate-800 text-center font-bold hover:bg-cyan-400 hover:text-slate-900 transition">شرح الدرس</a>
+                            <a href="https://t.me/EL_HANDASGEY/292" target="_blank" class="py-3 rounded-xl border border-slate-700 text-center text-slate-400 font-bold hover:border-cyan-400 transition">الملزمة</a>
+                            <p class="text-center text-slate-600 text-[10px] mt-2">قريباً: الاختبار التقييمي</p>
                         </div>
                     </div>
                     <div class="course-card">
-                        <span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة الثانية</span>
-                        <h3 class="text-xl font-bold mb-6">جمع وطرح المصفوفات</h3>
-                        <div class="space-y-3">
-                            <a href="https://youtu.be/eCLgrR10PeU" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900"><i class="fa-solid fa-play"></i> الشرح</a>
-                            <a href="https://t.me/EL_HANDASGEY/295" target="_blank" class="btn-action border border-slate-700 text-slate-300 hover:border-cyan-400"><i class="fa-solid fa-file-pdf"></i> الملزمة</a>
-                            <button class="w-full py-3 rounded-xl border border-dashed border-slate-700 text-slate-600 font-bold text-xs cursor-not-allowed">قريباً: الاختبار التقييمي</button>
+                        <span class="text-cyan-400 font-bold text-xs mb-2 block">الحصة الثانية</span>
+                        <h3 class="text-xl font-bold mb-6 text-white">جمع وطرح المصفوفات</h3>
+                        <div class="flex flex-col gap-2">
+                            <a href="https://youtu.be/eCLgrR10PeU" target="_blank" class="py-3 rounded-xl bg-slate-800 text-center font-bold hover:bg-cyan-400 hover:text-slate-900 transition">شرح الدرس</a>
+                            <a href="https://t.me/EL_HANDASGEY/295" target="_blank" class="py-3 rounded-xl border border-slate-700 text-center text-slate-400 font-bold hover:border-cyan-400 transition">الملزمة</a>
+                            <p class="text-center text-slate-600 text-[10px] mt-2">قريباً: الاختبار التقييمي</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="sec1-trig" class="sub-content hidden text-center py-20 bg-slate-900/20 rounded-[40px] border border-slate-800">
-                <p class="text-slate-500 handwritten text-2xl">سيتم إضافة باقي الحصص والاختبارات قريباً..</p>
-            </div>
-            <div id="sec1-geo" class="sub-content hidden text-center py-20 bg-slate-900/20 rounded-[40px] border border-slate-800">
-                <p class="text-slate-500 handwritten text-2xl">سيتم إضافة باقي الحصص والاختبارات قريباً..</p>
-            </div>
+            <div id="s1-trig" class="sub-content hidden text-center py-20"><p class="handwritten text-2xl text-slate-500">سيتم التحديث او سيتم اضافه باقى الحصص و الاختبارات</p></div>
+            <div id="s1-geo" class="sub-content hidden text-center py-20"><p class="handwritten text-2xl text-slate-500">سيتم التحديث او سيتم اضافه باقى الحصص و الاختبارات</p></div>
         </div>
 
         <div id="sec2" class="tab-content">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-6xl handwritten text-white mb-4">الصف الثاني الثانوي</h2>
-                <p class="text-cyan-400 font-bold">الترم الثاني</p>
+            <div class="text-center mb-12"><h2 class="text-4xl handwritten text-white">الصف الثاني الثانوي | الترم الثاني</h2></div>
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <button onclick="showSubTab('s2-algebra')" class="sub-btn active">الجبر</button>
+                <button onclick="showSubTab('s2-calc')" class="sub-btn">التفاضل والتكامل</button>
+                <button onclick="showSubTab('s2-trig')" class="sub-btn">حساب المثلثات (علمي)</button>
+                <button onclick="showSubTab('s2-mech')" class="sub-btn">الميكانيكا (علمي)</button>
             </div>
-
-            <div class="flex flex-wrap justify-center gap-3 mb-16">
-                <button onclick="showSubTab('sec2-algebra')" class="sub-btn active">الجبر</button>
-                <button onclick="showSubTab('sec2-calc')" class="sub-btn">التفاضل والتكامل</button>
-                <button onclick="showSubTab('sec2-trig')" class="sub-btn">المثلثات (علمي)</button>
-                <button onclick="showSubTab('sec2-mech')" class="sub-btn">الميكانيكا (علمي)</button>
-            </div>
-
-            <div id="sec2-algebra" class="sub-content block">
+            <div id="s2-algebra" class="sub-content">
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="course-card">
-                        <span class="text-cyan-400 text-xs font-bold mb-2 block">الدرس الأول</span>
-                        <h3 class="text-xl font-bold mb-6">المتتابعات</h3>
-                        <div class="space-y-3">
-                            <a href="https://youtu.be/4L-7dQH8GXM" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900"><i class="fa-solid fa-play"></i> الشرح</a>
-                            <a href="https://t.me/EL_HANDASGEY/291" target="_blank" class="btn-action border border-slate-700 text-slate-300 hover:border-cyan-400"><i class="fa-solid fa-file-pdf"></i> الملزمة</a>
-                            <button class="w-full py-3 rounded-xl border border-dashed border-slate-700 text-slate-600 font-bold text-xs cursor-not-allowed text-center">سيتم إضافة الاختبار قريباً</button>
+                        <span class="text-cyan-400 font-bold text-xs mb-2 block">الدرس الأول</span>
+                        <h3 class="text-xl font-bold mb-6 text-white">المتتابعات</h3>
+                        <div class="flex flex-col gap-2">
+                            <a href="https://youtu.be/4L-7dQH8GXM" target="_blank" class="py-3 rounded-xl bg-slate-800 text-center font-bold hover:bg-cyan-400 hover:text-slate-900 transition">شرح الدرس</a>
+                            <a href="https://t.me/EL_HANDASGEY/291" target="_blank" class="py-3 rounded-xl border border-slate-700 text-center text-slate-400 font-bold hover:border-cyan-400 transition">الملزمة</a>
+                            <p class="text-center text-slate-600 text-[10px] mt-2">قريباً: الاختبار التقييمي</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="sec2-trig" class="sub-content hidden">
+            <div id="s2-trig" class="sub-content hidden">
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="course-card">
-                        <span class="text-cyan-400 text-xs font-bold mb-2 block">الحصة الأولى</span>
-                        <h3 class="text-xl font-bold mb-6">زوايا الارتفاع والانخفاض</h3>
-                        <div class="space-y-3">
-                            <a href="https://youtu.be/YnW4CF5GPTA" target="_blank" class="btn-action bg-slate-800 text-white hover:bg-cyan-400 hover:text-slate-900"><i class="fa-solid fa-play"></i> الشرح</a>
-                            <a href="https://t.me/EL_HANDASGEY/280" target="_blank" class="btn-action border border-slate-700 text-slate-300 hover:border-cyan-400"><i class="fa-solid fa-file-pdf"></i> الملزمة</a>
-                            <button class="w-full py-3 rounded-xl border border-dashed border-slate-700 text-slate-600 font-bold text-xs cursor-not-allowed text-center">سيتم إضافة الاختبار قريباً</button>
+                        <span class="text-cyan-400 font-bold text-xs mb-2 block">الحصة الأولى</span>
+                        <h3 class="text-xl font-bold mb-6 text-white">زوايا الارتفاع والانخفاض</h3>
+                        <div class="flex flex-col gap-2">
+                            <a href="https://youtu.be/YnW4CF5GPTA" target="_blank" class="py-3 rounded-xl bg-slate-800 text-center font-bold hover:bg-cyan-400 hover:text-slate-900 transition">شرح الدرس</a>
+                            <a href="https://t.me/EL_HANDASGEY/280" target="_blank" class="py-3 rounded-xl border border-slate-700 text-center text-slate-400 font-bold hover:border-cyan-400 transition">الملزمة</a>
+                            <p class="text-center text-slate-600 text-[10px] mt-2">قريباً: الاختبار التقييمي</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="sec2-calc" class="sub-content hidden text-center py-20 bg-slate-900/20 rounded-[40px] border border-slate-800">
-                <p class="text-slate-500 handwritten text-2xl">سيتم التحديث وإضافة باقي الحصص قريباً..</p>
-            </div>
-            <div id="sec2-mech" class="sub-content hidden text-center py-20 bg-slate-900/20 rounded-[40px] border border-slate-800">
-                <p class="text-slate-500 handwritten text-2xl">سيتم التحديث وإضافة باقي الحصص قريباً..</p>
-            </div>
+            <div id="s2-calc" class="sub-content hidden text-center py-20"><p class="handwritten text-2xl text-slate-500">سيتم التحديث او سيتم اضافه باقى الحصص و الاختبارات</p></div>
+            <div id="s2-mech" class="sub-content hidden text-center py-20"><p class="handwritten text-2xl text-slate-500">سيتم التحديث او سيتم اضافه باقى الحصص و الاختبارات</p></div>
         </div>
-
     </main>
 
     <footer class="bg-slate-950 py-20 border-t border-slate-900 text-center">
@@ -221,24 +169,22 @@
             <a href="https://youtube.com/@elhandasgey" target="_blank" class="text-slate-600 hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://t.me/EL_HANDASGEY" target="_blank" class="text-slate-600 hover:text-cyan-400 transition"><i class="fa-brands fa-telegram"></i></a>
         </div>
-        <p class="text-slate-700 text-sm font-bold">جميع الحقوق محفوظة للهندسجي فتحي سيد © 2026</p>
+        <p class="text-slate-700 text-sm">جميع الحقوق محفوظة للهندسجي فتحي سيد © 2026</p>
     </footer>
 
     <script>
-        function showMainTab(tabId) {
+        function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
+            document.getElementById(id).classList.add('active');
             event.currentTarget.classList.add('active');
             window.scrollTo({ top: document.getElementById('nav-tabs').offsetTop - 20, behavior: 'smooth' });
         }
-
-        function showSubTab(subId) {
-            // الحصول على الحاوية الأب (sec1 أو sec2)
-            const parent = document.getElementById(subId).closest('.tab-content');
-            parent.querySelectorAll('.sub-content').forEach(c => c.style.display = 'none');
-            parent.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(subId).style.display = 'block';
+        function showSubTab(id) {
+            const container = document.getElementById(id).parentElement;
+            container.querySelectorAll('.sub-content').forEach(c => c.style.display = 'none');
+            container.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).style.display = 'block';
             event.currentTarget.classList.add('active');
         }
     </script>
