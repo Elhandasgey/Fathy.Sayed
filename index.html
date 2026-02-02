@@ -1,121 +1,279 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="منصة الإنقاذ التعليمية | مع الهندسجي فتحي سيد. طريقك للدرجة النهائية في الرياضيات يبدأ هنا. شرح احترافي مبسط، تأسيس قوي، ومتابعة مستمرة لطلاب الثانوية العامة. ابدأ رحلة التفوق الآن!">
+    <meta name="keywords" content="الهندسجي, فتحي سيد, منصة الإنقاذ, رياضيات ثانوية عامة, تأسيس رياضيات, شرح يوتيوب, منصة تعليمية">
+    <meta name="author" content="فتحي سيد | الهندسجي">
     <title>منصة الإنقاذ | الهندسجي فتحي سيد</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #020617; color: #e2e8f0; scroll-behavior: smooth; }
+        :root {
+            --color-bg-main: #020408; /* أسود ليلي عميق */
+            --color-bg-secondary: #0a101f; /* كحلي غامق جداً */
+            --color-accent-gold: #ffb700; /* ذهبي برتقالي دافئ (من إضاءة الوجه) */
+            --color-accent-cyan: #00eaff; /* سيان أزرق مضيء (من الإضاءة الخلفية) */
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--color-bg-main);
+            color: var(--color-text-primary);
+            overflow-x: hidden;
+        }
+        
         .handwritten { font-family: 'Aref Ruqaa', serif; }
         
-        /* ميكس الألوان الاحترافي */
-        .bg-teal-mix { background: radial-gradient(circle at center, #0e7490 0%, #020617 100%); }
-        .text-gold { color: #f59e0b; }
-        .bg-gold { background-color: #f59e0b; }
-        .border-gold { border-color: #f59e0b; }
+        /* تدرجات لونية مستوحاة من الإضاءة */
+        .bg-hero-gradient {
+            background: radial-gradient(circle at top right, rgba(0, 234, 255, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(255, 183, 0, 0.1) 0%, transparent 40%),
+                        var(--color-bg-main);
+        }
         
-        /* نظام التبويبات */
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.6s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        /* نصوص ملونة */
+        .text-gold { color: var(--color-accent-gold); }
+        .text-cyan { color: var(--color-accent-cyan); }
+        .text-gradient-gold {
+            background: linear-gradient(to right, var(--color-accent-gold), #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
-        .nav-btn.active { background-color: #f59e0b; color: #020617; border-color: #f59e0b; transform: scale(1.1); box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
-        .video-card { transition: all 0.3s ease; border: 1px solid #1e293b; }
-        .video-card:hover { transform: translateY(-5px); border-color: #0891b2; background-color: #0f172a; }
+        /* أزرار احترافية */
+        .btn-gold {
+            background: linear-gradient(45deg, var(--color-accent-gold), #ff8c00);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(255, 183, 0, 0.3);
+        }
+        .btn-gold:hover {
+            box-shadow: 0 6px 25px rgba(255, 183, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .btn-outline-cyan {
+            background: transparent;
+            border: 2px solid var(--color-accent-cyan);
+            color: var(--color-accent-cyan);
+            box-shadow: inset 0 0 0 0 var(--color-accent-cyan);
+            transition: all 0.3s ease;
+        }
+        .btn-outline-cyan:hover {
+            background: rgba(0, 234, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.3);
+        }
+
+        /* تبويبات التنقل */
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--color-text-secondary);
+            transition: all 0.3s ease;
+        }
+        .nav-btn.active {
+            background: linear-gradient(45deg, var(--color-accent-gold), #ff8c00);
+            color: #000;
+            border: none;
+            box-shadow: 0 0 20px rgba(255, 183, 0, 0.4);
+            transform: scale(1.05);
+        }
+        .nav-btn:hover:not(.active) {
+            border-color: var(--color-accent-cyan);
+            color: var(--color-accent-cyan);
+        }
+
+        /* كروت المحتوى */
+        .pro-card {
+            background: linear-gradient(145deg, rgba(10, 16, 31, 0.8), rgba(2, 4, 8, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .pro-card:hover {
+            border-color: var(--color-accent-gold);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5),
+                        0 0 20px rgba(255, 183, 0, 0.1) inset;
+        }
+        .pro-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(to right, var(--color-accent-gold), var(--color-accent-cyan));
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .pro-card:hover::before { opacity: 1; }
+
+        /* تأثيرات عامة */
+        .tab-content { display: none; animation: fadeUp 0.6s ease forwards; }
+        .tab-content.active { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .glow-text-gold { text-shadow: 0 0 15px rgba(255, 183, 0, 0.5); }
+        .glow-text-cyan { text-shadow: 0 0 15px rgba(0, 234, 255, 0.5); }
     </style>
 </head>
-<body>
+<body class="selection:bg-yellow-500/30">
 
-    <header class="bg-teal-mix py-24 px-4 text-center border-b-4 border-gold relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div class="container mx-auto relative z-10">
-            <h1 class="text-6xl md:text-8xl font-bold handwritten text-white mb-4 drop-shadow-lg">منصة <span class="text-gold">الإنقاذ</span></h1>
-            <p class="text-2xl md:text-4xl handwritten text-cyan-300">الرياضيات أمتع مع الهندسجي | فتحي سيد</p>
+    <header class="bg-hero-gradient min-h-[90vh] relative overflow-hidden flex items-center">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-5 mix-blend-overlay"></div>
+        
+        <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-cyan-500/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-yellow-500/10 blur-[120px] rounded-full mix-blend-screen pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10 py-20">
+            
+            <div class="lg:w-1/2 text-center lg:text-right space-y-8">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-cyan mb-2 glow-text-cyan">أهلاً بك يا بطل في</h2>
+                    <h1 class="text-6xl md:text-8xl font-black handwritten text-gradient-gold mb-4 leading-tight drop-shadow-2xl">
+                        منصة الإنقاذ
+                    </h1>
+                    <p class="text-3xl md:text-4xl handwritten text-white">
+                        مع <span class="text-gold underline decoration-2 decoration-gold/50 underline-offset-8">الهندسجي</span> | فتحي سيد
+                    </p>
+                </div>
+                
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium border-r-4 border-gold pr-6">
+                    مش مجرد منصة، دي خطتك للوصول للدرجة النهائية. شرح بيخاطب عقلك، تأسيس بيبني مستقبلك، ومتابعة بتضمن تفوقك. أنت هنا في أيد أمينة.
+                </p>
+                
+                <div class="flex flex-wrap justify-center lg:justify-start gap-6 items-center pt-4">
+                    <button onclick="document.getElementById('nav-tabs').scrollIntoView(); showMainTab('emergency');" class="btn-gold px-10 py-4 rounded-full font-black text-lg transition-all flex items-center gap-3 group">
+                        <span>ابدأ رحلة التفوق</span>
+                        <i class="fa-solid fa-arrow-left-long group-hover:-translate-x-2 transition-transform"></i>
+                    </button>
+                    <a href="https://youtube.com/@elhandasgey" target="_blank" class="btn-outline-cyan px-8 py-4 rounded-full font-bold transition-all flex items-center gap-3">
+                        <i class="fa-brands fa-youtube text-2xl"></i> قناتي الرسمية
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 flex justify-center items-center relative">
+                <div class="relative z-20 w-full max-w-[500px]">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/20 to-cyan-500/20 blur-3xl rounded-full scale-110 opacity-50 animate-pulse pointer-events-none"></div>
+                    
+                    <div class="relative rounded-b-[40px] overflow-hidden border-b-2 border-gold/50">
+                        <img src="https://avatars.githubusercontent.com/u/258786890?s=400&u=068e7b20038a66b4ed9da0cd84f6d7463f916677&v=4" alt="الهندسجي فتحي سيد يشير إليك" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700" style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-bg-secondary border border-gold/30 p-4 rounded-2xl shadow-xl shadow-gold/10 backdrop-blur-md animate-bounce hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-medal text-3xl text-gold"></i>
+                            <div>
+                                <h4 class="font-bold text-white">الرياضيات لعبتك</h4>
+                                <p class="text-xs text-slate-400">مع الهندسجي</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-cyan animate-bounce hidden lg:block">
+            <i class="fa-solid fa-angles-down text-2xl opacity-50"></i>
         </div>
     </header>
 
-    <nav class="container mx-auto -mt-10 flex flex-wrap justify-center gap-4 px-4 relative z-20">
-        <button onclick="showMainTab('emergency')" class="nav-btn active px-10 py-5 bg-slate-900 border-2 border-slate-700 rounded-2xl font-black transition-all">🚨 ركن الطوارئ</button>
-        <button onclick="showMainTab('sec1')" class="nav-btn px-10 py-5 bg-slate-900 border-2 border-slate-700 rounded-2xl font-black transition-all">🎓 أولى ثانوي</button>
-        <button onclick="showMainTab('sec2')" class="nav-btn px-10 py-5 bg-slate-900 border-2 border-slate-700 rounded-2xl font-black transition-all">🎓 تانية ثانوي</button>
-    </nav>
+    <div id="nav-tabs" class="bg-bg-secondary/50 backdrop-blur-xl border-y border-white/5 py-6 sticky top-0 z-50 shadow-2xl">
+        <nav class="container mx-auto flex flex-wrap justify-center gap-4 px-4">
+            <button onclick="showMainTab('emergency')" class="nav-btn active px-8 py-4 rounded-2xl font-black flex items-center gap-3">
+                <i class="fa-solid fa-bolt-lightning text-xl"></i> ركن الطوارئ
+            </button>
+            <button onclick="showMainTab('sec1')" class="nav-btn px-8 py-4 rounded-2xl font-black flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-xl"></i> أولى ثانوي
+            </button>
+            <button onclick="showMainTab('sec2')" class="nav-btn px-8 py-4 rounded-2xl font-black flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-xl"></i> تانية ثانوي
+            </button>
+        </nav>
+    </div>
 
-    <main class="container mx-auto py-20 px-4">
+    <main class="container mx-auto py-24 px-4">
         
         <div id="emergency" class="tab-content active">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold handwritten text-gold mb-6">كورس التأسيس القوي ⚡</h2>
-                <p class="text-xl text-slate-300 leading-relaxed font-medium">
-                    هنا هقدملك كل اللى محتاجه عشان تقدر تبدأ السنه صح مع زمايلك، كورس قوى، محتوى لذيذ، تقديم بشكل مختلف، أحدثكم عن كورس التأسيس.
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <span class="inline-block px-4 py-2 rounded-full bg-gold/10 text-gold font-bold text-sm mb-4 border border-gold/20">⚠️ المنطقة الأهم قبل البداية</span>
+                <h2 class="text-5xl md:text-6xl font-black handwritten text-white mb-8">
+                    كورس التأسيس <span class="text-gradient-gold glow-text-gold">القوي</span> ⚡
+                </h2>
+                <p class="text-xl text-slate-300 leading-relaxed font-medium mb-10 max-w-3xl mx-auto">
+                    هنا هقدملك كل اللى محتاجه عشان تقدر تبدأ السنه صح مع زمايلك. كورس قوي، محتوى لذيذ، وتقديم بشكل مختلف يخليك تحب الرياضة.
                 </p>
-                <a href="https://t.me/EL_HANDASGEY/134" target="_blank" class="inline-flex items-center gap-3 mt-8 bg-white/5 border border-gold/30 text-gold px-8 py-4 rounded-2xl font-black hover:bg-gold hover:text-slate-950 transition-all">
-                    <i class="fa-solid fa-file-pdf text-2xl"></i> تحميل ملف الكورس (PDF)
+                <a href="https://t.me/EL_HANDASGEY/134" target="_blank" class="btn-gold inline-flex items-center gap-3 px-12 py-5 rounded-full font-black text-lg group">
+                    <i class="fa-solid fa-file-pdf text-2xl group-hover:rotate-12 transition-transform"></i>
+                    <span>تحميل ملف الكورس (PDF)</span>
                 </a>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-gold/10 text-gold w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
-                        <i class="fa-solid fa-star text-2xl"></i>
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-bl-full -mr-10 -mt-10 blur-2xl transition-all group-hover:bg-gold/20"></div>
+                    <div class="bg-gradient-to-br from-gold to-orange-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-gold/20 text-2xl text-black font-bold relative z-10">
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <h3 class="text-xl font-black mb-4 text-white">محتوى الكورس الشامل</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">نظرة عامة على جميع الموضوعات الأساسية خطوة بخطوة، من المجموعات والفترات إلى المعادلات والميل.</p>
-                    <a href="https://youtu.be/q-lqr5M1tns" target="_blank" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white py-3 rounded-xl text-center font-black transition shadow-lg shadow-cyan-900/20">شاهد الفيديو الآن</a>
+                    <h3 class="text-2xl font-black mb-4 text-white">نظرة شاملة على الكورس</h3>
+                    <p class="text-slate-400 font-medium mb-8 flex-grow leading-relaxed">اعرف خطة العمل، والمواضيع الأساسية اللي هنغطيها خطوة بخطوة من الصفر للنهاية.</p>
+                    <a href="https://youtu.be/q-lqr5M1tns" target="_blank" class="w-full bg-bg-secondary hover:bg-cyan-900/30 text-cyan border-2 border-cyan-900/50 py-4 rounded-2xl text-center font-black transition-all shadow-lg hover:shadow-cyan-500/20 hover:border-cyan flex items-center justify-center gap-2 group-hover:gap-4">
+                        <span>شاهد الفيديو</span> <i class="fa-solid fa-play"></i>
+                    </a>
                 </div>
 
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-cyan-600/10 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner text-xl font-bold">1</div>
-                    <h3 class="text-xl font-black mb-4 text-white">الحصه الأولى</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">مفهوم المجموعة والعنصر، أنواع الفترات وتمثيلها، ومجاميع الأعداد والمقادير الجبرية.</p>
-                    <a href="https://youtu.be/7AQL2wA-fTw" target="_blank" class="w-full bg-slate-800 hover:bg-gold hover:text-slate-950 text-gold py-3 rounded-xl text-center font-black transition border border-gold/50">ابدأ الدرس</a>
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan/10 rounded-bl-full -mr-10 -mt-10 blur-2xl transition-all group-hover:bg-cyan/20"></div>
+                    <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 text-2xl text-black font-bold relative z-10">1</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">الحصه الأولى: البداية</h3>
+                    <p class="text-slate-400 font-medium mb-8 flex-grow leading-relaxed">مفهوم المجموعة والعنصر، أنواع الفترات، مجاميع الأعداد والمقادير الجبرية.</p>
+                    <a href="https://youtu.be/7AQL2wA-fTw" target="_blank" class="w-full bg-bg-secondary hover:bg-gold/10 text-gold border-2 border-gold/30 py-4 rounded-2xl text-center font-black transition-all shadow-lg hover:shadow-gold/20 hover:border-gold flex items-center justify-center gap-2 group-hover:gap-4">
+                        <span>ابدأ الدرس</span> <i class="fa-solid fa-arrow-left"></i>
+                    </a>
                 </div>
 
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-cyan-600/10 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner text-xl font-bold">2</div>
-                    <h3 class="text-xl font-black mb-4 text-white">الحصه الثانية</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">الأسس وخواصها، قوانين اللوغاريتمات، والتحليل بأنواعه (أهم عقدة للطلبة).</p>
-                    <a href="https://youtu.be/sC1p-lo_tY4" target="_blank" class="w-full bg-slate-800 hover:bg-gold hover:text-slate-950 text-gold py-3 rounded-xl text-center font-black transition border border-gold/50">ابدأ الدرس</a>
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan/10 rounded-bl-full -mr-10 -mt-10 blur-2xl transition-all group-hover:bg-cyan/20"></div>
+                    <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 text-2xl text-black font-bold relative z-10">2</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">الحصه الثانية: فك العقدة</h3>
+                    <p class="text-slate-400 font-medium mb-8 flex-grow leading-relaxed">الأسس وخواصها، اللوغاريتمات، والتحليل بأنواعه (أهم درس للتأسيس).</p>
+                    <a href="https://youtu.be/sC1p-lo_tY4" target="_blank" class="w-full bg-bg-secondary hover:bg-gold/10 text-gold border-2 border-gold/30 py-4 rounded-2xl text-center font-black transition-all shadow-lg hover:shadow-gold/20 hover:border-gold flex items-center justify-center gap-2 group-hover:gap-4">
+                        <span>ابدأ الدرس</span> <i class="fa-solid fa-arrow-left"></i>
+                    </a>
                 </div>
 
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-cyan-600/10 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner text-xl font-bold">3</div>
-                    <h3 class="text-xl font-black mb-4 text-white">الحصه الثالثة</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">المعادلات والمتباينات، الميل والعلاقات الطردية والعكسية (مهم جداً للفيزياء).</p>
-                    <a href="https://youtu.be/CoGVFPKUrf8" target="_blank" class="w-full bg-slate-800 hover:bg-gold hover:text-slate-950 text-gold py-3 rounded-xl text-center font-black transition border border-gold/50">ابدأ الدرس</a>
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan/10 rounded-bl-full -mr-10 -mt-10 blur-2xl transition-all group-hover:bg-cyan/20"></div>
+                    <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 text-2xl text-black font-bold relative z-10">3</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">الحصه الثالثة: المعادلات</h3>
+                    <p class="text-slate-400 font-medium mb-8 flex-grow leading-relaxed">المعادلات والمتباينات، الميل والعلاقات الطردية والعكسية (أساس للفيزياء).</p>
+                    <a href="https://youtu.be/CoGVFPKUrf8" target="_blank" class="w-full bg-bg-secondary hover:bg-gold/10 text-gold border-2 border-gold/30 py-4 rounded-2xl text-center font-black transition-all shadow-lg hover:shadow-gold/20 hover:border-gold flex items-center justify-center gap-2 group-hover:gap-4">
+                        <span>ابدأ الدرس</span> <i class="fa-solid fa-arrow-left"></i>
+                    </a>
                 </div>
 
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-cyan-600/10 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner text-xl font-bold">4</div>
-                    <h3 class="text-xl font-black mb-4 text-white">الحصه الرابعه</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">الخطوط وأنواعها، معادلة الخط المستقيم، الدوال والمجال.</p>
-                    <a href="https://youtu.be/bqUnE_lIkUc" target="_blank" class="w-full bg-slate-800 hover:bg-gold hover:text-slate-950 text-gold py-3 rounded-xl text-center font-black transition border border-gold/50">ابدأ الدرس</a>
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan/10 rounded-bl-full -mr-10 -mt-10 blur-2xl transition-all group-hover:bg-cyan/20"></div>
+                    <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 text-2xl text-black font-bold relative z-10">4</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">الحصه الرابعه: الدوال</h3>
+                    <p class="text-slate-400 font-medium mb-8 flex-grow leading-relaxed">الخطوط وأنواعها، معادلة الخط المستقيم، مفهوم الدوال والمجال.</p>
+                    <a href="https://youtu.be/bqUnE_lIkUc" target="_blank" class="w-full bg-bg-secondary hover:bg-gold/10 text-gold border-2 border-gold/30 py-4 rounded-2xl text-center font-black transition-all shadow-lg hover:shadow-gold/20 hover:border-gold flex items-center justify-center gap-2 group-hover:gap-4">
+                        <span>ابدأ الدرس</span> <i class="fa-solid fa-arrow-left"></i>
+                    </a>
                 </div>
 
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-cyan-600/10 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner text-xl font-bold">5</div>
-                    <h3 class="text-xl font-black mb-4 text-white">الحصه الخامسه</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">أساسيات حساب المثلثات وقوانينه من البداية للنهاية شرحاً مفصلاً.</p>
-                    <a href="https://youtu.be/OPjs4wvkExA" target="_blank" class="w-full bg-slate-800 hover:bg-gold hover:text-slate-950 text-gold py-3 rounded-xl text-center font-black transition border border-gold/50">ابدأ الدرس</a>
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan/10 rounded-bl-full -mr-10 -mt-10 blur-2xl transition-all group-hover:bg-cyan/20"></div>
+                    <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-cyan-500/20 text-2xl text-black font-bold relative z-10">5</div>
+                    <h3 class="text-2xl font-black mb-4 text-white">الحصه الخامسه: المثلثات</h3>
+                    <p class="text-slate-400 font-medium mb-8 flex-grow leading-relaxed">أساسيات حساب المثلثات وقوانينه من البداية للنهاية شرحاً مفصلاً.</p>
+                    <a href="https://youtu.be/OPjs4wvkExA" target="_blank" class="w-full bg-bg-secondary hover:bg-gold/10 text-gold border-2 border-gold/30 py-4 rounded-2xl text-center font-black transition-all shadow-lg hover:shadow-gold/20 hover:border-gold flex items-center justify-center gap-2 group-hover:gap-4">
+                        <span>ابدأ الدرس</span> <i class="fa-solid fa-arrow-left"></i>
+                    </a>
                 </div>
 
-                <div class="video-card bg-slate-900/50 p-6 rounded-[30px] flex flex-col">
-                    <div class="bg-cyan-600/10 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner text-xl font-bold">6</div>
-                    <h3 class="text-xl font-black mb-4 text-white">الحصه السادسه</h3>
-                    <p class="text-slate-400 text-sm mb-8 flex-grow">أساسيات الهندسة والهندسة الفراغية من الصفر.</p>
-                    <a href="https://youtu.be/PJrXRGs7mM4" target="_blank" class="w-full bg-slate-800 hover:bg-gold hover:text-slate-950 text-gold py-3 rounded-xl text-center font-black transition border border-gold/50">ابدأ الدرس</a>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="sec1" class="tab-content text-center py-20">
-            <h2 class="text-4xl font-bold handwritten text-cyan-400 mb-4">قريباً: منهج أولى ثانوي 🎓</h2>
-            <p class="text-slate-500">جاري تجهيز المحتوى وتنظيمه يا بطل..</p>
-        </div>
-
-        <div id="sec2" class="tab-content text-center py-20
+                <div class="pro-card p-8 rounded-[35px] flex flex-col relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan/10 rounded-bl-full
